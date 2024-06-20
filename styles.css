@@ -110,31 +110,62 @@ nav ul li a.active {
 }
 
 /* 휴가 신청 스타일 */
-#leaveForm {
+#leave-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#leaveForm input,
-#leaveForm button {
-    padding: 15px;
-    margin: 10px;
+#leaveForm {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+#leaveForm .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+#leaveForm .input-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#leaveForm .input-group input,
+#leaveForm .input-group textarea {
+    padding: 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
+    width: calc(100% - 30px);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#leaveForm .input-group input:focus,
+#leaveForm .input-group textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #leaveForm button {
+    padding: 15px;
     background-color: #2196F3;
     color: white;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 16px;
 }
 
 #leaveForm button:hover {
@@ -144,6 +175,7 @@ nav ul li a.active {
 
 /* 휴가 신청 리스트 스타일 */
 #leaveRequests {
+    margin-top: 20px;
     font-size: 16px;
     line-height: 1.8;
     width: 100%;
@@ -151,14 +183,20 @@ nav ul li a.active {
 }
 
 #leaveRequests div {
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#leaveRequests p {
+    margin: 0;
+    color: #555;
 }
 
 #leaveRequests button {
@@ -182,8 +220,9 @@ nav ul li a.active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 .calendar-header {
@@ -191,7 +230,6 @@ nav ul li a.active {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 800px;
     margin-bottom: 20px;
 }
 
@@ -219,7 +257,6 @@ nav ul li a.active {
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
     width: 100%;
-    max-width: 800px;
 }
 
 .calendar-body .day {
@@ -237,18 +274,6 @@ nav ul li a.active {
     background-color: #ddd;
 }
 
-.calendar-body .day .date {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.calendar-body .day .event {
-    font-size: 14px;
-    color: #ff5252;
-    margin-top: 10px;
-    text-align: center;
-}
-
 /* 테이블 스타일 */
 table {
     width: 100%;
@@ -260,22 +285,6 @@ th {
     color: white;
     padding: 10px;
 }
-
-button {
-    background-color: #f1f1f1;
-    color: #333;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 10px 5px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #ddd;
-}
-
 
 /* 버튼 스타일 */
 button {
@@ -294,3 +303,71 @@ button:hover {
     background-color: #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* 그리드 컨테이너 스타일 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7개의 열을 생성 */
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* 요일 행 스타일 */
+.days-row {
+    display: contents; /* 그리드 컨테이너와 같은 컨텍스트에 추가 */
+}
+
+.day-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
+
+/* 날짜 그리드 스타일 */
+.days-grid {
+    display: contents; /* 그리드 컨테이너와 같은 컨텍스트에 추가 */
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 공백 스타일 */
+.day.empty {
+    background-color: transparent;
+}
+
+/* 날짜 스타일 */
+.date {
+    font-size: 18px;
+}
+
+/* 이벤트 스타일 */
+.event {
+    font-size: 14px !important; /* 중요도를 높여서 다른 스타일이 덮어쓰지 않도록 설정 */
+    color: #0c0505 !important; /* 중요도를 높여서 색상이 덮어쓰이지 않도록 설정 */
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 일요일 스타일 */
+.day-header:nth-child(1),
+.day:nth-child(7n+1) { /* 그리드에서 첫 번째 칸과 7의 배수 칸 */
+    color: #ff0000; /* 붉은색 */
+}
+
+/* 토요일 스타일 */
+.day-header:nth-child(7),
+.day:nth-child(7n) { /* 그리드에서 일곱 번째 칸과 7의 배수 칸 */
+    color: #0000ff; /* 푸른색 */
+}
+
