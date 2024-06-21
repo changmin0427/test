@@ -4,90 +4,116 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: row; /* 좌우 레이아웃 설정 */
+    height: 100vh; /* 화면 전체 높이 사용 */
+}
+
+/* 사이드바 설정 */
+.sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 250px; /* 사이드바 너비 */
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px #0c09091a;
 }
 
-/* 헤더 스타일 */
-h1, h2 {
-    text-align: center;
-    color: #333;
-    margin: 20px 0;
+/* 유저 정보 설정 */
+.user-info {
+    margin-bottom: 20px;
 }
 
-/* 네비게이션 스타일 */
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
+.user-info h3 {
     margin: 0;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
 }
 
-nav ul li {
-    margin: 0 15px;
+.user-info p {
+    margin: 0;
+    font-size: 18px;
+    color: #555;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
-    transition: background-color 0.3s, transform 0.3s;
-    border-radius: 5px;
+/* 버튼 설정 */
+.header-buttons {
+    display: flex; /* flexbox로 설정하여 수평 정렬 */
+    justify-content: space-between; /* 버튼 사이에 간격 추가 */
+    width: 100%; /* 버튼들이 사이드바의 너비를 차지하도록 설정 */
+    margin-bottom: 20px; /* 버튼과 메뉴 사이의 간격 추가 */
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: #575757;
-    transform: scale(1.05);
-}
-
-/* 헤더 버튼 스타일 */
-#header {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#header button {
+.header-buttons button {
+    flex: 1; /* 각 버튼이 동일한 크기를 가지도록 설정 */
     background-color: #4CAF50;
     color: white;
-    padding: 15px 25px;
-    margin: 5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px; /* 버튼 사이에 약간의 간격 추가 */
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     font-size: 16px;
 }
 
-#header button:hover {
+.header-buttons button:hover {
     background-color: #45a049;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 메인 컨텐츠 스타일 */
+/* 사이드바 네비게이션 설정 */
+.sidebar-nav {
+    width: 100%;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav ul li a {
+    text-decoration: none;
+    color: #333; /* 텍스트 색상 */
+    padding: 10px 15px;
+    background-color: #f8e3eb; /* 사이드바 메뉴 박스배경색 */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a.active {
+    background-color: #d1dce6; /* 사이드바 메뉴 박스배경색 */
+    transform: scale(1.05);
+}
+
+/* 메인 콘텐츠 설정 */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* 메인 컨텐츠 설정 */
 #content {
     padding: 25px;
     background-color: white;
-    margin: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
 }
 
-/* 로딩 스타일 */
+/* 로딩 스피너 설정 */
 #loading {
     text-align: center;
     font-size: 18px;
